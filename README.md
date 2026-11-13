@@ -1,7 +1,4 @@
 # Advanced-Programming-Group-Project
-<p align="center">
-  <img src="assets/events-default-1024x807.webp" alt="University of Technology, Jamaica" width="200"/>
-</p>
 
 <h3 align="center">University of Technology, Jamaica</h3>
 <p align="center">
