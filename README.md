@@ -1,4 +1,4 @@
-# Advanced-Programming-Group-Project
+<h1 align="center"># Advanced-Programming-Group-Project</h1>
 
 <h3 align="center">University of Technology, Jamaica</h3>
 <p align="center">
