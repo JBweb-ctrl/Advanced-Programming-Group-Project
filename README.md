@@ -14,9 +14,9 @@
 
 ---
 
-<h3 align="center"> **Lecturer:** Mr. Christopher Panther
-**Date Given:** October 2, 2026
-**Due Date:** November 20, 2026</h3>
+<h3 align="center"> Lecturer: Mr. Christopher Panther
+Date Given: October 2, 2026
+Due Date: November 20, 2026</h3>
 
 ---
 <p align="center">
