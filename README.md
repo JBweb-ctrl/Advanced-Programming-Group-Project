@@ -20,7 +20,7 @@
 
 ---
 <p align="center">
-</strong>Group Members</strong<br/>
+</strong>Group Members</strong><br/>
   Jhamar Brown - 2209430<br/>
   Danielle Noble - 2205710<br/>
   Shemar Campbell -2111864<br/>
