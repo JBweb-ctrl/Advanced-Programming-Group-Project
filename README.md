@@ -30,10 +30,8 @@ Due Date: November 20, 2026</h3>
 
 ---
 <p align="center">Project Description</p>
-Advanced Programming Group Project
-University Help Desk & Ticketing System
-Given: October 2, 2026 Due: November 20, 2026 Group size: 4 (Maximum)
-Project Overview
+
+Project Overview: 
 The University Help Desk & Ticketing System is a distributed software solution designed
 to support the reporting, tracking, assignment, and resolution of technical support
 issues within a university environment. The system will provide a desktop-based JavaFX
