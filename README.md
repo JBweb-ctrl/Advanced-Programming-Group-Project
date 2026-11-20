@@ -26,6 +26,7 @@ Due Date: November 20, 2026</h3>
   Shemar Campbell -2111864<br/>
 
   Occurrence: UE1
+  Lab: Tuesdays 8 AM
 </p>
 
 ---
