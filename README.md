@@ -4,7 +4,7 @@
 <p align="center">
   Faculty of Engineering and Computing<br/>
   School of Computing and Information Technology<br/>
-  <strong>Advanced Programming(CIT3009)</strong><br/>
+  <strong>Advanced Programming (CIT3009)</strong><br/>
   Semester 1 -- Academic Year 26/27
 </p>
 
