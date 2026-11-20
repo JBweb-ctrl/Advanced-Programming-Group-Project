@@ -23,7 +23,7 @@ Due Date: November 20, 2026</h3>
 </strong>Group Members:</strong><br/>
   Jhamar Brown - 2209430<br/>
   Danielle Noble - 2205710<br/>
-  Shemar Campbell -2111864<br/>
+  Shemar Campbell - 2111864<br/>
 
   Occurrence: UE1
   Lab: Tuesdays 8 AM
