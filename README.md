@@ -84,8 +84,42 @@ Students will design and develop a software solution capable of:
 ```
 ---
 ## How to Run
-1. Start MySQL (USBWebserver, port 3307) and run helpdesk_db.sql in phpMyAdmin
-2. Run NotificationServerLauncher (helpdesk-notification-server)
-3. Run HelpDeskRestServiceApplication (helpdesk-rest-service)
-4. Run Launcher (helpdesk-client)
-5. Log in with student1, admin or tech (password: password123)
+
+### Requirements
+- **JDK 17** (tested with Eclipse Temurin 17.0.19)
+- **Eclipse IDE** with Maven
+- **USBWebserver** (MySQL on port 3307, user `root`, password `usbw`)
+
+### Eclipse setup (once)
+1. **File > Import > Maven > Existing Maven Projects**, then select all 3 projects
+2. Make sure Eclipse uses the JDK, not its built-in JRE:
+   - **Window > Preferences > Java > Installed JREs**: tick your JDK 17 (e.g. `jdk-17.0.19.10-hotspot`)
+   - **Installed JREs > Execution Environments > JavaSE-17**: tick the same JDK
+   - Apply, then **Project > Clean** on all 3 projects
+3. If a project still shows errors, right-click it > **Maven > Update Project** (tick Force Update)
+
+If you see `java.lang.Enum cannot be resolved`, step 2 hasn't been done yet.
+
+### Database setup (once)
+1. Start **MySQL** in USBWebserver
+2. Open phpMyAdmin, open the **SQL** tab and run `helpdesk_db.sql`
+3. Check that `helpdesk_db` has 4 tables: `user`, `technician`, `ticket`, `comment`
+   (if `comment` is missing, select `helpdesk_db` and run just the `CREATE TABLE comment` block from the file)
+
+### Start the system (in this order)
+1. **MySQL** (USBWebserver)
+2. `NotificationServerLauncher` (helpdesk-notification-server), port 9090
+3. `HelpDeskRestServiceApplication` (helpdesk-rest-service), port 8080
+   - wait for `Database connection successful (helpdesk_db)`
+4. `Launcher` (helpdesk-client)
+
+Run each one with right-click > **Run As > Java Application**.
+
+### Logins
+All accounts use the password `password123`.
+
+| Username | Role |
+|---|---|
+| `student1` | Student/Staff |
+| `admin` | Administrator |
+| `tech` | Technician |
