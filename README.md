@@ -73,6 +73,7 @@ Students will design and develop a software solution capable of:
 
 ---
 <h1>Project Structure </h1>
+```
 ├── helpdesk-client/                          # JavaFX client (GUI)
 │   ├── pom.xml
 │   └── src/main/
@@ -176,5 +177,6 @@ Students will design and develop a software solution capable of:
 │
 ├── helpdesk_db.sql                           # Creates the helpdesk_db database and sample data
 ├── .gitignore                                # Leaves out target/ and logs/
-└── README.md                                 # This file
+└── README.md   # This file
+```
 ---
