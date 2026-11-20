@@ -83,3 +83,9 @@ Students will design and develop a software solution capable of:
 └── README.md                         # This file
 ```
 ---
+## How to Run
+1. Start MySQL (USBWebserver, port 3307) and run helpdesk_db.sql in phpMyAdmin
+2. Run NotificationServerLauncher (helpdesk-notification-server)
+3. Run HelpDeskRestServiceApplication (helpdesk-rest-service)
+4. Run Launcher (helpdesk-client)
+5. Log in with student1, admin or tech (password: password123)
