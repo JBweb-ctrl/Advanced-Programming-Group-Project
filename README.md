@@ -72,7 +72,8 @@ Students will design and develop a software solution capable of:
 • Processing concurrent requests safely.
 
 ---
-<h1>Project Structure </h1>
+## Project Structure
+
 ```
 ├── helpdesk-client/                          # JavaFX client (GUI)
 │   ├── pom.xml
@@ -177,6 +178,6 @@ Students will design and develop a software solution capable of:
 │
 ├── helpdesk_db.sql                           # Creates the helpdesk_db database and sample data
 ├── .gitignore                                # Leaves out target/ and logs/
-└── README.md   # This file
+└── README.md                                 # This file
 ```
 ---
