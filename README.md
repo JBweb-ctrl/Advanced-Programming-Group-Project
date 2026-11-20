@@ -70,3 +70,111 @@ Students will design and develop a software solution capable of:
 • Providing real-time notifications through network communication.
 • Maintaining audit logs.
 • Processing concurrent requests safely.
+
+---
+<h1>Project Structure </h1>
+├── helpdesk-client/                          # JavaFX client (GUI)
+│   ├── pom.xml
+│   └── src/main/
+│       ├── java/jm/edu/utech/helpdesk/
+│       │   ├── Launcher.java                 # Starts the JavaFX app
+│       │   ├── MainApp.java                  # JavaFX Application, opens the login screen
+│       │   ├── controller/                   # MVC controllers (button and form handling)
+│       │   │   ├── LoginController.java
+│       │   │   ├── RegisterController.java
+│       │   │   ├── ChangePasswordController.java
+│       │   │   ├── UserDashboardController.java
+│       │   │   ├── TechnicianDashboardController.java
+│       │   │   ├── AdminDashboardController.java
+│       │   │   ├── ManageUsersController.java
+│       │   │   ├── ManageTechniciansController.java
+│       │   │   └── ReportsController.java
+│       │   ├── view/                         # MVC views (JavaFX screens)
+│       │   │   ├── LoginView.java
+│       │   │   ├── RegisterView.java
+│       │   │   ├── ChangePasswordView.java
+│       │   │   ├── UserDashboardView.java
+│       │   │   ├── TechnicianDashboardView.java
+│       │   │   ├── AdminDashboardView.java
+│       │   │   ├── ManageUsersView.java
+│       │   │   ├── ManageTechniciansView.java
+│       │   │   └── ReportsView.java
+│       │   ├── model/                        # MVC models (Ticket, User, Technician, Comment)
+│       │   ├── dto/                          # JSON records received from the REST service
+│       │   ├── service/
+│       │   │   ├── ApiClient.java            # Sends HTTP requests to the REST service
+│       │   │   ├── ApiResponse.java          # Status code + body of a REST reply
+│       │   │   ├── TicketApi.java            # Ticket endpoints
+│       │   │   ├── UserApi.java              # User and login endpoints
+│       │   │   ├── TechnicianApi.java        # Technician endpoints
+│       │   │   ├── ReportApi.java            # Report endpoints
+│       │   │   ├── TicketMapper.java         # Converts server JSON into client models
+│       │   │   ├── TicketRefreshService.java # Background thread that refreshes the technician dashboard
+│       │   │   ├── TicketService.java        # Old in-memory version (kept, commented out)
+│       │   │   └── TechnicianService.java    # Old in-memory version (kept, commented out)
+│       │   ├── network/
+│       │   │   └── NotificationListener.java # TCP connection that receives popups
+│       │   ├── notification/model/           # Shared notification classes (same in all 3 projects)
+│       │   ├── exception/                    # Client exceptions (invalid login, server connection, etc.)
+│       │   └── util/
+│       │       ├── SceneManager.java         # Switches between screens
+│       │       ├── AlertUtil.java            # JavaFX Alerts
+│       │       ├── ErrorHandler.java         # Turns REST errors into messages
+│       │       └── NotificationPopup.java    # Shows notification popups
+│       └── resources/log4j2.xml              # Logging (application.log, error.log)
+│
+├── helpdesk-rest-service/                    # Spring Boot REST service + database
+│   ├── pom.xml
+│   └── src/main/
+│       ├── java/jm/edu/utech/helpdesk/
+│       │   ├── rest/
+│       │   │   ├── HelpDeskRestServiceApplication.java  # Starts the REST service (port 8080)
+│       │   │   ├── controller/               # REST endpoints
+│       │   │   │   ├── UserController.java       # /api/users
+│       │   │   │   ├── TicketController.java     # /api/tickets
+│       │   │   │   ├── TechnicianController.java # /api/technicians
+│       │   │   │   └── ReportController.java     # /api/reports
+│       │   │   ├── service/                  # Business logic
+│       │   │   │   ├── AccountService.java       # Login, register, passwords
+│       │   │   │   ├── UserService.java
+│       │   │   │   ├── TechnicianService.java
+│       │   │   │   ├── TicketService.java        # Ticket rules, per-ticket locks, notifications
+│       │   │   │   └── ReportService.java        # The 5 reports
+│       │   │   ├── persistence/              # Database access (JPA / Hibernate)
+│       │   │   │   ├── JpaUtil.java              # EntityManagerFactory
+│       │   │   │   ├── DatabaseCheck.java        # Checks the MySQL connection at startup
+│       │   │   │   ├── UserRepository.java
+│       │   │   │   ├── TechnicianRepository.java
+│       │   │   │   ├── TicketRepository.java
+│       │   │   │   └── CommentRepository.java
+│       │   │   ├── entity/                   # JPA entities (User, Technician, Ticket, Comment)
+│       │   │   ├── model/                    # Records sent as JSON + TicketStatus enum
+│       │   │   ├── dto/                      # Request and response bodies
+│       │   │   ├── exception/                # Custom exceptions + GlobalExceptionHandler
+│       │   │   └── notification/
+│       │   │       ├── NotificationClient.java   # Sends notifications to the server over TCP
+│       │   │       └── NotificationService.java  # Thread pool that sends them in the background
+│       │   └── notification/model/           # Shared notification classes
+│       └── resources/
+│           ├── META-INF/persistence.xml      # Database connection (helpdesk_db)
+│           ├── application.properties
+│           └── log4j2.xml                    # Logging (application.log, error.log)
+│
+├── helpdesk-notification-server/             # TCP notification server (port 9090)
+│   ├── pom.xml
+│   └── src/main/
+│       ├── java/jm/edu/utech/helpdesk/notification/
+│       │   ├── NotificationServerLauncher.java   # Starts the server
+│       │   ├── server/
+│       │   │   ├── NotificationServer.java       # Accepts client connections
+│       │   │   ├── ClientHandler.java            # One thread per connected client
+│       │   │   └── SessionManager.java           # Tracks who is connected, delivers notifications
+│       │   ├── model/                            # Shared notification classes
+│       │   └── tools/
+│       │       └── NotificationTestClient.java   # Console tool for testing the server
+│       └── resources/log4j2.xml                  # Logging (application.log, error.log)
+│
+├── helpdesk_db.sql                           # Creates the helpdesk_db database and sample data
+├── .gitignore                                # Leaves out target/ and logs/
+└── README.md                                 # This file
+---
