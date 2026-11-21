@@ -79,6 +79,7 @@ Students will design and develop a software solution capable of:
 ├── helpdesk-rest-service/            # Spring Boot REST service + MySQL database (JPA/Hibernate), port 8080
 ├── helpdesk-notification-server/     # TCP notification server, port 9090
 ├── helpdesk_db.sql                   # Creates the helpdesk_db database and sample data
+├── documentation.zip                 # Problem definition, requirements and the 4 diagrams
 ├── .gitignore                        # Leaves out target/ and logs/
 └── README.md                         # This file
 ```
