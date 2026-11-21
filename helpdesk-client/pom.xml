@@ -1,0 +1,74 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>jm.edu.utech.helpdesk</groupId>
+  <artifactId>helpdesk-client</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+  <properties>
+  <maven.compiler.release>17</maven.compiler.release>
+  <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  <javafx.version>21</javafx.version>
+  </properties>
+  
+  <dependencies>
+  <!---Java FX -->
+  	<dependency>
+  			<groupId>org.openjfx</groupId>
+  			<artifactId>javafx-controls</artifactId>
+  			<version>${javafx.version}</version>
+  	</dependency>
+  	<dependency>
+  			<groupId>org.openjfx</groupId>
+  			<artifactId>javafx-fxml</artifactId>
+  			<version>${javafx.version}</version>
+  	</dependency>
+  	<!--JSON-->
+  	<dependency>
+  		<groupId>com.fasterxml.jackson.core</groupId>
+  		<artifactId>jackson-databind</artifactId>
+  		<version>2.22.2</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>com.fasterxml.jackson.core</groupId>
+  		<artifactId>jackson-core</artifactId>
+  		<version>2.22.2</version>
+  	</dependency>
+  	<!--Log4j2-->
+  	<dependency>
+  		<groupId>org.apache.logging.log4j</groupId>
+  		<artifactId>log4j-api</artifactId>
+  		<version>2.25.1</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.apache.logging.log4j</groupId>
+  		<artifactId>log4j-core</artifactId>
+  		<version>2.25.1</version>
+  	</dependency>
+  </dependencies>
+  
+  <build>
+  <plugins>
+  		<plugin>
+  			<groupId>org.apache.maven.plugins</groupId>
+  			<artifactId>maven-compiler-plugin</artifactId>
+  			<version>3.13.0</version>
+  			<configuration>
+  				<release>${maven.compiler.release}</release>
+  			</configuration>
+  		</plugin>
+  		
+  		<plugin>
+  			<groupId>org.openjfx</groupId>
+  			<artifactId>javafx-maven-plugin</artifactId>
+  			<version>0.0.8</version>
+  			<configuration>
+  				<mainClass>jm.edu.utech.helpdesk.MainApp</mainClass>
+  			</configuration>
+  		</plugin>
+  	</plugins>
+  </build>
+  
+</project>

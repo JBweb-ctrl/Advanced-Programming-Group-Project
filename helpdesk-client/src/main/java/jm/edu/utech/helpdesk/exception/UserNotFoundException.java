@@ -1,0 +1,15 @@
+package jm.edu.utech.helpdesk.exception;
+
+//user does not exist
+public class UserNotFoundException extends HelpDeskClientException {
+
+    private static final long serialVersionUID = 1L;
+
+    public UserNotFoundException(String message) {
+        super(message);
+    }
+
+    public UserNotFoundException(String message, Throwable cause) {
+        super(message, cause);
+    }
+}
