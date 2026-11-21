@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence
+             https://jakarta.ee/xml/ns/persistence/persistence_3_2.xsd" version="3.2">
+
+  <!-- A persistence unit groups the entity classes and settings. -->
+  <persistence-unit name="helpdeskPU" transaction-type="RESOURCE_LOCAL">
+    <!-- Hibernate implements the JPA specification. -->
+    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+    <!-- Entities managed by this persistence unit. -->
+    <class>jm.edu.utech.helpdesk.rest.entity.User</class>
+    <class>jm.edu.utech.helpdesk.rest.entity.Technician</class>
+    <class>jm.edu.utech.helpdesk.rest.entity.Ticket</class>
+    <class>jm.edu.utech.helpdesk.rest.entity.Comment</class>
+
+    <properties>
+      <!-- MySQL connection settings. -->
+      <property name="jakarta.persistence.jdbc.driver"
+                value="com.mysql.cj.jdbc.Driver"/>
+      <property name="jakarta.persistence.jdbc.url"
+                value="jdbc:mysql://localhost:3307/helpdesk_db?serverTimezone=UTC"/>
+
+      <property name="jakarta.persistence.jdbc.user" value="root"/>
+
+      <!-- Demonstration password only. Do not commit real credentials. -->
+      <property name="jakarta.persistence.jdbc.password" value="usbw"/>
+
+      <!-- Validate checks mappings without recreating existing tables. -->
+      <property name="hibernate.hbm2ddl.auto" value="validate"/>
+
+      <!-- Show readable sql while students learn. -->
+      <property name="hibernate.show_sql" value="true"/>
+      <property name="hibernate.format_sql" value="true"/>
+      <property name="hibernate.jdbc.time_zone" value="UTC"/>
+    </properties>
+  </persistence-unit>
+
+</persistence>

@@ -1,0 +1,66 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>3.5.6</version>
+    <relativePath/>
+  </parent>
+
+  <groupId>jm.edu.utech</groupId>
+  <artifactId>helpdesk-rest-service</artifactId>
+  <version>1.0</version>
+  <name>helpdesk-rest-service</name>
+
+  <properties>
+    <java.version>17</java.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <jakarta-persistence.version>3.2.0</jakarta-persistence.version>
+  </properties>
+
+  <dependencies>
+    <!-- REST controllers. Spring Boot's default Logback is excluded so Log4j2 is used instead. -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-logging</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <!-- Log4j2 for Spring Boot (brings log4j-api and log4j-core) -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-log4j2</artifactId>
+    </dependency>
+
+
+    <!-- the JPA and MySQL dependencies go here when the database is added -->
+    <dependency>
+    	<groupId>org.hibernate.orm</groupId>
+    	<artifactId>hibernate-core</artifactId>
+    	<version>7.1.11.Final</version>
+	</dependency>
+	<dependency>
+    	<groupId>com.mysql</groupId>
+    	<artifactId>mysql-connector-j</artifactId>
+    	<version>9.5.0</version>
+    <scope>runtime</scope>
+	</dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
+</project>

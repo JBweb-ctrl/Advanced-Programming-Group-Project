@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Notification Server logging: application log + error log, both rolling. -->
+<Configuration status="WARN">
+  <Properties>
+    <Property name="LOG_DIR">logs/notification-server</Property>
+    <Property name="PATTERN">%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</Property>
+  </Properties>
+
+  <Appenders>
+    <Console name="Console">
+      <PatternLayout pattern="${PATTERN}"/>
+    </Console>
+
+    <!-- 1. Application log: everything INFO and above -->
+    <RollingFile name="AppLog" fileName="${LOG_DIR}/application.log"
+                 filePattern="${LOG_DIR}/application-%d{yyyy-MM-dd}-%i.log.gz">
+      <PatternLayout pattern="${PATTERN}"/>
+      <Policies>
+        <TimeBasedTriggeringPolicy/>
+        <SizeBasedTriggeringPolicy size="10 MB"/>
+      </Policies>
+      <DefaultRolloverStrategy max="10"/>
+    </RollingFile>
+
+    <!-- 2. Error log: ERROR and above only -->
+    <RollingFile name="ErrorLog" fileName="${LOG_DIR}/error.log"
+                 filePattern="${LOG_DIR}/error-%d{yyyy-MM-dd}-%i.log.gz">
+      <ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>
+      <PatternLayout pattern="${PATTERN}"/>
+      <Policies>
+        <TimeBasedTriggeringPolicy/>
+        <SizeBasedTriggeringPolicy size="5 MB"/>
+      </Policies>
+      <DefaultRolloverStrategy max="10"/>
+    </RollingFile>
+  </Appenders>
+
+  <Loggers>
+    <Root level="info">
+      <AppenderRef ref="Console"/>
+      <AppenderRef ref="AppLog"/>
+      <AppenderRef ref="ErrorLog"/>
+    </Root>
+  </Loggers>
+</Configuration>
