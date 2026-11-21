@@ -95,7 +95,7 @@ Students will design and develop a software solution capable of:
 1. **File > Import > Maven > Existing Maven Projects**, then select all 3 projects
 2. Make sure Eclipse uses the JDK, not its built-in JRE:
    - **Window > Preferences > Java > Installed JREs**: tick your JDK 17 (e.g. `jdk-17.0.19.10-hotspot`)
-   - **Installed JREs > Execution Environments > JavaSE-17**: tick the same JDK
+   - **If errors remain, also check Installed JREs > Execution Environments > JavaSE-17**: tick the same JDK
    - Apply, then **Project > Clean** on all 3 projects
 3. If a project still shows errors, right-click it > **Maven > Update Project** (tick Force Update)
 
